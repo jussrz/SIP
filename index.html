@@ -42,6 +42,25 @@
   <div class="activities-collage" id="act-collage"></div>
 </section>
 
+<!-- ACTIVITY MODAL -->
+<div class="act-modal-overlay" id="act-modal-overlay" onclick="closeModal(event)">
+  <div class="act-modal" id="act-modal">
+    <div class="act-modal-img-wrap">
+      <img id="modal-img" src="" alt=""/>
+      <span class="act-modal-num" id="modal-num"></span>
+    </div>
+    <div class="act-modal-body">
+      <button class="act-modal-close" onclick="closeModalDirect()">✕</button>
+      <p class="act-modal-tag" id="modal-tag"></p>
+      <h2 class="act-modal-title" id="modal-title"></h2>
+      <p class="act-modal-year" id="modal-year"></p>
+      <div class="act-modal-divider"></div>
+      <p class="act-modal-reflection-label">Reflection</p>
+      <p class="act-modal-text" id="modal-text"></p>
+    </div>
+  </div>
+</div>
+
 <!-- MY PASSION PLAN — REDESIGNED -->
 <section id="passion" class="page">
 

@@ -140,7 +140,7 @@ const acts = [
   },
 ];
 
-// Build activities collage on page load
+// ── BUILD ACTIVITY CARDS ──
 (function buildActs(){
   const container = document.getElementById('act-collage');
   if (!container) return;
@@ -148,69 +148,77 @@ const acts = [
   acts.forEach((a, i) => {
     const card = document.createElement('div');
     card.className = 'act-card';
-    card.onclick = function() { toggleAct(i); };
+    card.onclick = function() { openModal(i); };
     card.innerHTML = `
+      <div class="act-card-image-wrap">
+        <img src="${a.img}" alt="Activity ${a.n}" class="act-card-image" loading="lazy"/>
+      </div>
       <div class="act-card-inner">
         <div class="act-card-header">
           <span class="act-card-num">${a.n}</span>
           <span class="act-card-tag">${a.tag}</span>
         </div>
-        <div class="act-card-image-wrap">
-          <img src="${a.img}" alt="Activity ${a.n} image" class="act-card-image" loading="lazy" />
-        </div>
         <h3 class="act-card-title">${a.title}</h3>
         <span class="act-card-year">${a.year}</span>
-        <p class="act-card-preview">${a.text}</p>
-        <div class="act-card-expand">
-          <span>View Reflection</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
+        <div class="act-card-cta">
+          <span>Read Reflection</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-      </div>
-      <div class="act-card-details" id="apnl-${i}">
-        <p class="panel-label">Reflection</p>
-        <div class="panel-img-ph">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="15" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 18"/></svg>
-          Activity ${a.n} — ${a.title}
-        </div>
-        <p class="panel-text">${a.text}</p>
       </div>`;
     container.appendChild(card);
   });
 })();
 
-// Toggle activity card expansion
-function toggleAct(i){
-  const cards = document.querySelectorAll('.act-card');
-  const card = cards[i];
-  if (!card) return;
-  card.classList.toggle('open');
+// ── MODAL ──
+function openModal(i) {
+  const a = acts[i];
+  document.getElementById('modal-img').src   = a.img;
+  document.getElementById('modal-img').alt   = a.title;
+  document.getElementById('modal-num').textContent   = a.n + ' / 17';
+  document.getElementById('modal-tag').textContent   = a.tag;
+  document.getElementById('modal-title').textContent = a.title;
+  document.getElementById('modal-year').textContent  = a.year;
+  document.getElementById('modal-text').textContent  = a.text;
+
+  const overlay = document.getElementById('act-modal-overlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-// ── PAGE ROUTING (fixed) ──
+function closeModalDirect() {
+  document.getElementById('act-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  // Close only if clicking the backdrop, not the modal itself
+  if (e.target === document.getElementById('act-modal-overlay')) {
+    closeModalDirect();
+  }
+}
+
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModalDirect();
+});
+
+// ── PAGE ROUTING ──
 function go(id) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
     p.style.display = 'none';
   });
-
-  // Remove active state from all nav links
   document.querySelectorAll('[data-p]').forEach(a => a.classList.remove('active'));
 
-  // Show the target page
   const target = document.getElementById(id);
   if (target) {
-    target.style.display = '';   // remove inline override, let CSS .active handle it
+    target.style.display = '';
     target.classList.add('active');
   }
 
-  // Highlight the nav link
   const lnk = document.querySelector(`[data-p="${id}"]`);
   if (lnk) lnk.classList.add('active');
 
-  // Scroll to very top of page
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 }
@@ -230,7 +238,7 @@ window.addEventListener('scroll', () => {
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
 });
 
-// ── SET INITIAL NAV STATE ──
+// ── INITIAL NAV STATE ──
 document.addEventListener('DOMContentLoaded', () => {
   const homeLink = document.querySelector('[data-p="home"]');
   if (homeLink) homeLink.classList.add('active');

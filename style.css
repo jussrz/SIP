@@ -306,83 +306,180 @@ nav.scrolled {
   color: var(--text-muted);
 }
 
-.act-card-preview {
-  font-size: 12px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-top: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.act-card-expand {
+.act-card-cta {
   margin-top: 16px;
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   display: flex;
   align-items: center;
   gap: 6px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-.act-card-expand svg {
-  width: 12px;
-  height: 12px;
-  transition: transform 0.3s ease;
+.act-card:hover .act-card-cta {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.act-card.open .act-card-expand svg {
-  transform: rotate(180deg);
+/* ===== ACTIVITY MODAL ===== */
+.act-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(5, 10, 20, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.act-card-details {
-  max-height: 0;
+.act-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.act-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
 }
 
-.act-card.open .act-card-details {
-  max-height: 600px;
-  padding: 20px 24px 24px;
-  border-top: 1px solid var(--border);
+.act-modal-overlay.open .act-modal {
+  transform: translateY(0) scale(1);
 }
 
-.panel-label {
+/* Left — image */
+.act-modal-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-mid);
+  min-height: 400px;
+}
+
+.act-modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.act-modal-num {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.12em;
+}
+
+/* Right — content */
+.act-modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 36px;
+  overflow-y: auto;
+}
+
+.act-modal-close {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--border-mid);
+  color: var(--text-muted);
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-bottom: 28px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.act-modal-close:hover {
+  color: var(--text-primary);
+  border-color: var(--border-mid);
+}
+
+.act-modal-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 12px;
 }
 
-.panel-img-ph {
-  width: 100%;
-  height: 140px;
-  background: var(--bg-mid);
-  border: 1px dashed var(--border-mid);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.act-modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.act-modal-year {
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+}
+
+.act-modal-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+  margin-bottom: 24px;
+}
+
+.act-modal-reflection-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
   margin-bottom: 14px;
 }
 
-.panel-text {
-  font-size: 13px;
+.act-modal-text {
+  font-size: 14px;
   color: var(--text-secondary);
+  line-height: 1.9;
   font-style: italic;
-  line-height: 1.85;
+}
+
+/* Modal responsive */
+@media (max-width: 640px) {
+  .act-modal {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+  }
+  .act-modal-img-wrap {
+    min-height: 220px;
+    max-height: 260px;
+  }
+  .act-modal-body {
+    padding: 28px 24px;
+  }
 }
 
 /* ===== PASSION PLAN — REDESIGNED ===== */
@@ -801,43 +898,46 @@ nav.scrolled {
 /* Bottom closing strip */
 .mission-footer-strip {
   width: 100%;
-  padding: 56px 80px;
+  padding: 56px 40px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: center;
+  gap: 28px;
+  border-top: 1px solid var(--border);
 }
 
 .mission-footer-values {
   display: flex;
-  gap: 24px;
+  gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .mission-value-pill {
   font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.16em;
+  font-size: 9px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   border: 1px solid var(--border-mid);
-  padding: 6px 14px;
-  transition: color 0.2s, border-color 0.2s;
+  padding: 8px 18px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .mission-value-pill:hover {
   color: var(--accent);
   border-color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .mission-footer-tag {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  text-align: right;
-  max-width: 260px;
-  flex-shrink: 0;
+  text-align: center;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -860,11 +960,8 @@ nav.scrolled {
     border-bottom: 1px solid var(--border);
   }
   .mission-footer-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px 28px;
+    padding: 40px 20px;
   }
-  .mission-footer-tag { text-align: left; }
 }
 
 @media (max-width: 640px) {
