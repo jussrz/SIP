@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joshua Sam D. Suarez | SIP Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-brand" onclick="go('home')">jus</a>
+  <ul class="nav-links">
+    <li><a onclick="go('home')"      data-p="home">Home</a></li>
+    <li><a onclick="go('activities')"data-p="activities">My Activities</a></li>
+    <li><a onclick="go('passion')"   data-p="passion">My Passion Plan</a></li>
+    <li><a onclick="go('journey')"   data-p="journey">My Journey Map</a></li>
+    <li><a onclick="go('mission')"   data-p="mission">My Personal Mission Statement</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero-photo-wrapper">
+    <img src="wacky.jpg" alt="Joshua Sam Suarez"/>
+  </div>
+  <h1 class="hero-name">Joshua Sam D. Suarez</h1>
+  <p class="hero-sub">Ateneo de Davao University</p>
+  <p class="hero-sub">BS IT–AA <span> </span> Senior Integration Program</p>
+  <div class="home-divider"></div>
+  <div class="home-quote-wrap">
+    <p class="home-quote">"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future."</p>
+    <p class="home-quote-attr">— Jeremiah 29:11</p>
+  </div>
+</section>
+
+<!-- MY ACTIVITIES -->
+<section id="activities" class="page">
+  <h2 class="page-title">My Activities</h2>
+  <div class="thin-bar"></div>
+  <div class="activities-collage" id="act-collage"></div>
+</section>
+
+<!-- MY PASSION PLAN — REDESIGNED -->
+<section id="passion" class="page">
+
+  <!-- Page header -->
+  <div class="passion-page-header">
+    <p class="passion-page-eyebrow">Senior Integration Program · 2026</p>
+    <h2 class="passion-page-title">My Passion Plan</h2>
+    <p class="passion-page-sub">Prayer &amp; Ten-to-Twenty Year Vision</p>
+  </div>
+
+  <!-- Split layout -->
+  <div class="passion-split">
+
+    <!-- LEFT — Prayer for Future Self -->
+    <div class="passion-left">
+      <p class="passion-panel-eyebrow">Prayer for My Future Self</p>
+      <h3 class="passion-panel-title">A conversation with God<br/>about who I am becoming</h3>
+
+      <div class="passion-prayer-body">
+        <p class="prayer-para">Lord, I come before You not with a polished life, but with an honest heart. You already know who I am — the doubts I carry, the dreams I'm afraid to say out loud, and the quiet hope that refuses to let me give up. So I bring all of that to You.</p>
+
+        <p class="prayer-para">I pray for the person I am still becoming. Give me the wisdom to make decisions I won't regret, and the courage to take steps forward even when the path ahead isn't clear. Teach me to be patient with myself — to understand that growth takes time, and that slow progress is still progress.</p>
+
+        <div class="prayer-pullquote">
+          <p>I pray for the discipline to sharpen my craft as a developer, to keep learning even when it's hard, and to bring excellence to everything I build. Help me to work not just for a paycheck, but with a sense of purpose.</p>
+        </div>
+
+        <p class="prayer-para">I pray for my family. You know how much I want to be there for them — to ease their burdens, to give them a better life, to make them proud. Give me the strength to carry that responsibility without letting it crush me, and remind me that caring for them starts with caring for myself.</p>
+
+        <p class="prayer-para">I pray for my heart. Guard it from bitterness, from comparison, and from the kind of fear that keeps me standing still. Let me be someone who celebrates others' success while still believing that mine is possible too.</p>
+
+        <p class="prayer-para">And in the years ahead — in the milestones I reach and the ones I miss, in the seasons of abundance and the ones that stretch me thin — let me never forget where my help comes from. Let me remain grateful, humble, and anchored in You.</p>
+
+        <p class="prayer-amen">Not perfect. Just purposeful. Not fearless. Just faithful. — Amen.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT — 10–20 Year Passion Plan -->
+    <div class="passion-right">
+      <p class="passion-panel-eyebrow">10–20 Year Passion Plan</p>
+      <h3 class="passion-panel-title">Walking with intention,<br/>one phase at a time</h3>
+
+      <div class="passion-timeline-v2">
+
+        <div class="tl2-item">
+          <div class="tl2-gutter">
+            <span class="tl2-num">01</span>
+            <div class="tl2-line"></div>
+          </div>
+          <div class="tl2-content">
+            <p class="tl2-phase">Years 1 – 3</p>
+            <h4 class="tl2-label">Foundation &amp; Entry</h4>
+            <div class="tl2-card">
+              <p class="tl2-body">Secure a full-time role as a Junior Web/Software Developer. Build proficiency in React, Node.js, databases, and REST APIs. Complete real-world projects, earn a relevant certification, and begin building a 3–6 month emergency fund while contributing to family expenses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl2-item">
+          <div class="tl2-gutter">
+            <span class="tl2-num">02</span>
+            <div class="tl2-line"></div>
+          </div>
+          <div class="tl2-content">
+            <p class="tl2-phase">Years 4 – 7</p>
+            <h4 class="tl2-label">Growth &amp; Deepening</h4>
+            <div class="tl2-card">
+              <p class="tl2-body">Advance to Mid-level or Senior Developer. Develop expertise in full-stack SaaS, automation, or cloud. Begin mentoring juniors, explore freelance work to diversify income, and start saving toward property ownership.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl2-item">
+          <div class="tl2-gutter">
+            <span class="tl2-num">03</span>
+            <div class="tl2-line"></div>
+          </div>
+          <div class="tl2-content">
+            <p class="tl2-phase">Years 8 – 12</p>
+            <h4 class="tl2-label">Establishing Roots</h4>
+            <div class="tl2-card">
+              <p class="tl2-body">Reach Senior/Lead Developer or Engineering Manager. Launch a side project generating supplementary income. Own a home for my family, build a personal brand in tech, and establish at least one stream of passive income.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl2-item">
+          <div class="tl2-gutter">
+            <span class="tl2-num">04</span>
+            <div class="tl2-line"></div>
+          </div>
+          <div class="tl2-content">
+            <p class="tl2-phase">Years 13 – 20</p>
+            <h4 class="tl2-label">Legacy &amp; Impact</h4>
+            <div class="tl2-card">
+              <p class="tl2-body">Transition into entrepreneurship, consulting, or founding a tech venture. Build or contribute to a business that creates jobs. Achieve genuine financial freedom and leave something behind that outlasts my career.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end timeline -->
+
+      <p class="passion-closing">This Passion Plan is my commitment to myself, to my family, and to God — that I will not drift through life but walk through it with intention. One step at a time. One day at a time. Forward.</p>
+    </div>
+
+  </div><!-- end passion-split -->
+</section>
+
+<!-- MY JOURNEY MAP -->
+<section id="journey" class="page">
+  <div class="journey-head">
+    <h2>Journey Map</h2>
+  </div>
+  <img src="journeymap.jpg" alt="My AdDU Journey Map" style="width:90%; max-width:860px; margin-bottom:60px;"/>
+</section>
+
+<!-- PERSONAL MISSION STATEMENT — REDESIGNED -->
+<section id="mission" class="page">
+
+  <!-- Full-width banner -->
+  <div class="mission-banner">
+    <p class="mission-eyebrow">Personal Mission Statement · Joshua Sam D. Suarez</p>
+    <h2 class="mission-banner-title">I am not defined by<br/>where I started.</h2>
+    <div class="mission-featured-quote">
+      <p>"I am not defined by where I started. I am defined by the direction I choose to walk in."</p>
+      <p class="mission-featured-attr">— Joshua Sam D. Suarez</p>
+    </div>
+  </div>
+
+  <div class="mission-divider-line"></div>
+
+  <!-- Four pillars as a horizontal band -->
+  <div class="mission-pillars">
+
+    <div class="mission-pillar">
+      <div class="mission-pillar-num">I</div>
+      <p class="mission-pillar-label">Who I Am Becoming</p>
+      <h3 class="mission-pillar-title">Purpose, Competence &amp; Character</h3>
+      <p>I am becoming someone who builds not just software, but solutions that genuinely matter. A developer sharpening his craft, a son working toward the ability to care for the people who sacrificed for him, and a young man learning, day by day, what it truly means to live with intention.</p>
+    </div>
+
+    <div class="mission-pillar">
+      <div class="mission-pillar-num">II</div>
+      <p class="mission-pillar-label">What Drives Me</p>
+      <h3 class="mission-pillar-title">Building Something Real</h3>
+      <p>I am driven by the desire to build a career, a stable home, and a future I can be proud of. I want to prove to myself that consistency and hard work can transform where I come from into where I'm going. Every line of code, every problem solved is a small step toward a life where I genuinely thrive.</p>
+    </div>
+
+    <div class="mission-pillar">
+      <div class="mission-pillar-num">III</div>
+      <p class="mission-pillar-label">The Values I Live By</p>
+      <h3 class="mission-pillar-title">My Foundation</h3>
+      <p>
+        <strong>Integrity</strong> — Doing what is right even when no one is watching.<br/><br/>
+        <strong>Growth</strong> — Treating every failure as a lesson and every challenge as an opportunity.<br/><br/>
+        <strong>Family</strong> — The reason behind every goal I pursue.<br/><br/>
+        <strong>Excellence</strong> — Not perfection, but always giving my honest best.<br/><br/>
+        <strong>Faith</strong> — Trusting that God's plan is greater than what I can currently see.
+      </p>
+    </div>
+
+    <div class="mission-pillar">
+      <div class="mission-pillar-num">IV</div>
+      <p class="mission-pillar-label">The Impact I Hope to Make</p>
+      <h3 class="mission-pillar-title">Beyond My Career</h3>
+      <p>I hope to build technology that solves real problems for real people — through the companies I work for, the projects I take on, and the businesses I eventually build. Beyond my career, I want to be someone my family can lean on and someone my community can look up to. My impact starts small and close to home, and grows from there.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer strip with values pills -->
+  <div class="mission-footer-strip">
+    <div class="mission-footer-values">
+      <span class="mission-value-pill">Integrity</span>
+      <span class="mission-value-pill">Growth</span>
+      <span class="mission-value-pill">Family</span>
+      <span class="mission-value-pill">Excellence</span>
+      <span class="mission-value-pill">Faith</span>
+      <span class="mission-value-pill">Service</span>
+      <span class="mission-value-pill">Magis</span>
+    </div>
+    <p class="mission-footer-tag">Ateneo de Davao University · BS IT–AA · Senior Integration Program · 2026</p>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
