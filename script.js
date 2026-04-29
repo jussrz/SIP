@@ -138,6 +138,14 @@ const acts = [
     img: 'act16B.jpg',
     text: 'What emerged from all of that struggle is not a dramatic transformation, but something quieter and more durable: I learned to trust myself. I stopped waiting for certainty before I could move forward. I chose to do what I love — computers, technology, problem-solving — and I chose to keep going even when the doubts were still present. I did not silence those voices of fear; I simply decided they would not have the final say. I now see failure not as a verdict on who I am, but as a redirection toward who I am meant to become. I see struggle not as a sign that I do not belong, but as the very path through which I grow. And I see myself not as someone who barely survived the shift, but as someone who was shaped by it. My Ateneo journey has taught me that conversion is not a single moment. It is a long, quiet process of returning to yourself, again and again, until you finally recognize the person you have been becoming all along.'
   },
+    {
+    n: '18',
+    tag: 'Graduation Reflection',
+    title: 'Graduation Reflection: Leaving with More Than a Degree',
+    year: '2026',
+    img: 'gradreflection.png',
+    text: 'I am leaving not just with a degree, but with a version of myself that was forged through sleepless nights, happy tears, and every messy, beautiful experience this university gave me.'
+  },
 ];
 
 // ── BUILD ACTIVITY CARDS ──
